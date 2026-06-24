@@ -8,8 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for cute desk items & icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts for handwriting sticky notes and warm fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts for warm clean fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         body {
@@ -17,60 +17,57 @@
             background-color: #e5d3b3;
             /* Desk Wood texture imitation */
             background-image: 
-                linear-gradient(90deg, rgba(139,94,60,0.15) 1px, transparent 1px),
-                linear-gradient(0deg, rgba(139,94,60,0.15) 1px, transparent 1px);
+                linear-gradient(90deg, rgba(139,94,60,0.12) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(139,94,60,0.12) 1px, transparent 1px);
             background-size: 50px 50px;
         }
         .header-font {
             font-family: 'Fredoka', sans-serif;
         }
-        .handwritten {
-            font-family: 'Caveat', cursive;
-        }
         /* Realistic Paper shadows & rotations to mimic a real desk */
         .desk-paper-left {
-            transform: rotate(-1.5deg);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            transform: rotate(-1deg);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
         }
         .desk-paper-left:hover {
-            transform: rotate(0deg) scale(1.02);
+            transform: rotate(0deg) scale(1.01);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            z-index: 10;
+            border-color: #8b5e3c;
         }
         .desk-paper-right {
-            transform: rotate(1.5deg);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            transform: rotate(1deg);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
         }
         .desk-paper-right:hover {
-            transform: rotate(0deg) scale(1.02);
+            transform: rotate(0deg) scale(1.01);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            z-index: 10;
+            border-color: #cbd5e1;
         }
-        /* Coffee cup heat steam animation */
-        @keyframes steam {
-            0% { transform: translateY(0) scaleX(1); opacity: 0.5; }
-            50% { transform: translateY(-5px) scaleX(1.2); opacity: 0.8; }
-            100% { transform: translateY(-10px) scaleX(1); opacity: 0; }
+        /* Pulse cue for magnifying zoom glass */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.5; }
         }
-        .steam-line {
-            animation: steam 2.5s infinite ease-in-out;
+        .pulse-zoom {
+            animation: pulse-ring 2s infinite ease-in-out;
         }
         /* Bounce for buttons */
         .btn-pop {
             transition: transform 0.1s ease, box-shadow 0.1s ease;
         }
         .btn-pop:active {
-            transform: scale(0.95);
+            transform: scale(0.96);
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden text-slate-800 pb-4">
 
     <!-- MAIN INTERACTIVE APP CONTAINER -->
-    <div class="w-full max-w-6xl mx-auto px-4 py-4 flex-grow flex flex-col justify-between">
+    <div class="w-full max-w-6xl mx-auto px-4 py-3 flex-grow flex flex-col justify-between">
         
         <!-- TOP HUD - WOODEN BULLETIN BOARD STYLE -->
-        <header class="bg-[#efe5d3] border-4 border-[#8b5e3c] rounded-3xl p-4 shadow-xl mb-6 relative">
+        <header class="bg-[#efe5d3] border-4 border-[#8b5e3c] rounded-3xl p-3 sm:p-4 shadow-xl mb-4 relative">
             <!-- Pin elements to mimic corkboard -->
             <div class="absolute -top-3 left-10 w-6 h-6 bg-rose-500 rounded-full border-2 border-white shadow-md flex items-center justify-center">
                 <div class="w-2 h-2 bg-rose-800 rounded-full"></div>
@@ -81,33 +78,33 @@
 
             <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div class="flex items-center gap-3">
-                    <div class="bg-amber-100 text-[#8b5e3c] p-3 rounded-2xl border-2 border-[#8b5e3c] shadow-inner">
-                        <i class="fa-solid fa-clipboard-user text-2xl"></i>
+                    <div class="bg-amber-100 text-[#8b5e3c] p-2.5 sm:p-3 rounded-2xl border-2 border-[#8b5e3c] shadow-inner">
+                        <i class="fa-solid fa-clipboard-user text-xl sm:text-2xl"></i>
                     </div>
                     <div>
-                        <h1 class="header-font text-2xl font-bold text-[#8b5e3c] tracking-wide">
+                        <h1 class="header-font text-xl sm:text-2xl font-bold text-[#8b5e3c] tracking-wide text-center sm:text-left">
                             THE DESK: JOB DECODER
                         </h1>
-                        <p class="text-xs font-bold text-[#b07d56] tracking-wide">Community College Career Sandbox</p>
+                        <p class="text-[10px] sm:text-xs font-bold text-[#b07d56] tracking-wide text-center sm:text-left">Community College Career Sandbox</p>
                     </div>
                 </div>
 
                 <!-- SCORE & COUNTERS -->
-                <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
-                    <div class="bg-white px-4 py-1.5 rounded-2xl border-2 border-[#cbb092] text-center flex-1 sm:flex-initial min-w-[85px] shadow-sm">
-                        <p class="text-[9px] text-[#8b5e3c] uppercase font-extrabold tracking-wider">Points</p>
-                        <p id="hud-score" class="text-lg font-bold text-emerald-600">0</p>
+                <div class="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
+                    <div class="bg-white px-3 py-1 rounded-2xl border-2 border-[#cbb092] text-center flex-1 sm:flex-initial min-w-[75px] shadow-sm">
+                        <p class="text-[8px] text-[#8b5e3c] uppercase font-extrabold tracking-wider">Points</p>
+                        <p id="hud-score" class="text-base font-bold text-emerald-600">0</p>
                     </div>
-                    <div class="bg-white px-4 py-1.5 rounded-2xl border-2 border-[#cbb092] text-center flex-1 sm:flex-initial min-w-[85px] shadow-sm">
-                        <p class="text-[9px] text-[#8b5e3c] uppercase font-extrabold tracking-wider">Streak</p>
-                        <div class="flex items-center justify-center gap-1">
-                            <i class="fa-solid fa-fire text-orange-500 text-xs"></i>
-                            <p id="hud-streak" class="text-lg font-bold text-orange-600">x0</p>
+                    <div class="bg-white px-3 py-1 rounded-2xl border-2 border-[#cbb092] text-center flex-1 sm:flex-initial min-w-[75px] shadow-sm">
+                        <p class="text-[8px] text-[#8b5e3c] uppercase font-extrabold tracking-wider">Streak</p>
+                        <div class="flex items-center justify-center gap-0.5">
+                            <i class="fa-solid fa-fire text-orange-500 text-[10px]"></i>
+                            <p id="hud-streak" class="text-base font-bold text-orange-600">x0</p>
                         </div>
                     </div>
-                    <div class="bg-white px-4 py-1.5 rounded-2xl border-2 border-[#cbb092] text-center flex-1 sm:flex-initial min-w-[85px] shadow-sm">
-                        <p class="text-[9px] text-[#8b5e3c] uppercase font-extrabold tracking-wider">Stack</p>
-                        <p id="hud-progress" class="text-lg font-bold text-blue-600">1/5</p>
+                    <div class="bg-white px-3 py-1 rounded-2xl border-2 border-[#cbb092] text-center flex-1 sm:flex-initial min-w-[75px] shadow-sm">
+                        <p class="text-[8px] text-[#8b5e3c] uppercase font-extrabold tracking-wider">Stack</p>
+                        <p id="hud-progress" class="text-base font-bold text-blue-600">1/5</p>
                     </div>
                 </div>
             </div>
@@ -116,37 +113,8 @@
         <!-- MAIN INTERACTIVE SPACE (DESK SURFACE) -->
         <main class="flex-grow flex flex-col justify-center relative">
             
-            <!-- DECORATIVE OFFICE ITEMS (Only visible on larger screens to avoid mobile clutter) -->
-            <div class="hidden lg:block absolute -left-12 bottom-0 w-24 h-24 pointer-events-none opacity-90">
-                <!-- Coffee Cup -->
-                <div class="relative">
-                    <div class="flex flex-col items-center gap-0.5 absolute -top-8 left-6">
-                        <div class="w-1 h-4 bg-slate-300/40 rounded steam-line"></div>
-                        <div class="w-1 h-3 bg-slate-300/30 rounded steam-line" style="animation-delay: 0.8s;"></div>
-                    </div>
-                    <div class="w-16 h-16 bg-[#e06666] border-4 border-[#8c2a2a] rounded-b-2xl rounded-t-sm shadow-md"></div>
-                    <div class="absolute top-2 -right-3 w-6 h-8 border-4 border-[#8c2a2a] rounded-r-xl"></div>
-                    <div class="w-20 h-2 bg-[#d9d9d9] absolute -bottom-1 -left-2 rounded-full border border-slate-400"></div>
-                </div>
-            </div>
-
-            <div class="hidden lg:block absolute -right-8 bottom-0 w-24 h-24 pointer-events-none opacity-80">
-                <!-- Pencil Cup & Sticky notes -->
-                <div class="relative">
-                    <div class="w-12 h-16 bg-[#b2d8d8] border-4 border-[#4d8585] rounded-t-md rounded-b-lg shadow-md flex items-end justify-center pb-1">
-                        <div class="flex gap-1">
-                            <div class="w-1.5 h-12 bg-amber-300 rounded-t-sm rotate-[-12deg] origin-bottom"></div>
-                            <div class="w-1.5 h-14 bg-[#5ea68d] rounded-t-sm rotate-[5deg] origin-bottom"></div>
-                            <div class="w-1.5 h-11 bg-indigo-400 rounded-t-sm rotate-[18deg] origin-bottom"></div>
-                        </div>
-                    </div>
-                    <!-- Sticky notes block -->
-                    <div class="absolute -bottom-1 -left-8 w-12 h-10 bg-yellow-100 border-2 border-yellow-300 shadow-sm rotate-[15deg]"></div>
-                </div>
-            </div>
-
             <!-- START / MAIN LANDING SCREEN -->
-            <div id="start-screen" class="bg-white border-8 border-[#cbb092] rounded-3xl p-6 sm:p-8 shadow-2xl max-w-xl mx-auto my-auto relative">
+            <div id="start-screen" class="bg-white border-8 border-[#cbb092] rounded-3xl p-5 sm:p-8 shadow-2xl max-w-xl mx-auto my-auto relative">
                 <!-- Decorative clip at the top -->
                 <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-28 h-8 bg-[#8b5e3c] rounded-t-lg shadow-inner flex items-center justify-center">
                     <div class="w-16 h-2 bg-[#b07d56] rounded"></div>
@@ -154,13 +122,13 @@
 
                 <div class="text-center mt-2">
                     <span class="inline-block bg-[#fcf8e3] text-[#8a6d3b] border-2 border-[#faebcc] px-4 py-1 rounded-full text-xs font-bold mb-4 uppercase tracking-wider">
-                        💼 Community College Career Center Game
+                        <i class="fa-solid fa-graduation-cap"></i> Community College Career Center Game
                     </span>
-                    <h2 class="header-font text-3xl font-extrabold mb-4 text-[#8b5e3c]">
+                    <h2 class="header-font text-2xl sm:text-3xl font-extrabold mb-3 text-[#8b5e3c]">
                         The Desk: Perfect Match
                     </h2>
-                    <p class="text-slate-600 mb-6 text-sm leading-relaxed max-w-md mx-auto">
-                        Welcome to your internship at the Career Advising Center! Your task is simple: review local everyday job openings and determine if the student's resume is an appropriate match for the position.
+                    <p class="text-slate-600 mb-5 text-sm leading-relaxed max-w-md mx-auto">
+                        Welcome to your internship at the Career Advising Center! Your task is simple: review local everyday job openings and determine if the student's resume is an appropriate match based on qualifications, core experiences, and keywords.
                     </p>
 
                     <!-- SIMPLIFIED RULES CARD -->
@@ -173,22 +141,22 @@
                         </h4>
                         <ul class="text-xs text-slate-700 space-y-2.5">
                             <li class="flex items-start gap-2">
-                                <span class="bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded text-[10px]">Step 1:</span>
-                                <span>Look at the **Job Description** (on the left clipboard) to see what skills, tools, or schedule they are asking for.</span>
+                                <span class="bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded text-[10px]">1</span>
+                                <span>Inspect the **Job Description** on the left. Identify requested skills, required qualifications, and core keywords.</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="bg-blue-100 text-blue-800 font-bold px-1.5 py-0.5 rounded text-[10px]">Step 2:</span>
-                                <span>Check the **Student's Resume** (on the right pad). Do they have transferable skills? Are they available during those hours?</span>
+                                <span class="bg-blue-100 text-blue-800 font-bold px-1.5 py-0.5 rounded text-[10px]">2</span>
+                                <span>Verify the **Candidate's Resume** on the right. Do they possess matching keywords, summaries, and prior experience?</span>
                             </li>
                             <li class="flex items-start gap-2">
-                                <span class="bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded text-[10px]">Step 3:</span>
-                                <span>Make your decision: **Yes (Match)** or **No (Mismatch)**. Read the coaching tips to master resume writing!</span>
+                                <span class="bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded text-[10px]">🔎 Tip</span>
+                                <span class="text-indigo-950 font-medium"><strong>Mobile Zoom!</strong> Tap or click either sheet of paper to pop it open in full-screen for easier reading!</span>
                             </li>
                         </ul>
                     </div>
 
-                    <button onclick="startGame()" class="w-full sm:w-auto px-10 py-4 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-md shadow-lg shadow-[#8b5e3c]/25 transform transition-all duration-200 hover:scale-105 active:scale-95">
-                        Sit at Desk <i class="fa-solid fa-chair ml-1"></i>
+                    <button onclick="startGame()" class="w-full sm:w-auto px-10 py-4 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-md shadow-lg shadow-[#8b5e3c]/25 transform hover:-translate-y-0.5 btn-pop transition-all">
+                        Sit at Desk & Start <i class="fa-solid fa-chair ml-1"></i>
                     </button>
                 </div>
             </div>
@@ -201,7 +169,7 @@
                         <i class="fa-solid fa-paperclip"></i>
                     </div>
 
-                    <h3 class="header-font text-xl font-bold text-[#8b5e3c] mb-2 flex items-center gap-2">
+                    <h3 class="header-font text-lg font-bold text-[#8b5e3c] mb-2 flex items-center gap-2">
                         <span id="tut-step-num" class="bg-amber-100 text-[#8b5e3c] px-2.5 py-0.5 rounded-lg text-sm font-extrabold">1 of 3</span> 
                         Desk Orientation
                     </h3>
@@ -213,7 +181,7 @@
                         <button onclick="skipTutorial()" class="text-xs text-slate-400 font-bold hover:text-slate-600">
                             Skip Walkthrough
                         </button>
-                        <button onclick="nextTutorialStep()" id="tut-btn-next" class="px-5 py-2.5 bg-[#8b5e3c] text-white font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-md hover:bg-[#724a2c] transform transition-all active:scale-95">
+                        <button onclick="nextTutorialStep()" id="tut-btn-next" class="px-5 py-2.5 bg-[#8b5e3c] text-white font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-md hover:bg-[#724a2c]">
                             Next Tool <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </button>
                     </div>
@@ -223,98 +191,104 @@
             <!-- GAMEPLAY SECTION -->
             <div id="gameplay-screen" class="hidden flex-grow flex flex-col justify-center">
                 
+                <!-- MOBILE ZOOM CUE BAR -->
+                <div class="text-center mb-2 animate-bounce flex items-center justify-center gap-1.5 text-xs font-semibold text-amber-900/80">
+                    <i class="fa-solid fa-magnifying-glass-plus text-amber-800"></i>
+                    <span>Tap either paper to zoom/read full screen!</span>
+                </div>
+
                 <!-- SIDE-BY-SIDE COMPARE AREA (THE DOCUMENTS) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch mb-5">
                     
                     <!-- LEFT CLIPBOARD: JOB DESCRIPTION -->
-                    <div class="bg-[#fcfbf9] rounded-2xl border-4 border-[#8b5e3c] shadow-xl p-6 flex flex-col justify-between desk-paper-left relative">
+                    <div onclick="openZoomModal('jd')" class="cursor-pointer bg-[#fcfbf9] rounded-2xl border-4 border-[#8b5e3c] shadow-lg p-5 flex flex-col justify-between desk-paper-left relative">
                         <!-- Clipboard head element -->
                         <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-[#a1a1a1] border-2 border-slate-600 rounded shadow flex items-center justify-center">
                             <div class="w-10 h-2 bg-[#d1d1d1] rounded"></div>
                         </div>
 
+                        <!-- Zoom Floating Indicator badge -->
+                        <div class="absolute top-2 right-2 bg-amber-500 text-white rounded-full p-1.5 shadow-md pulse-zoom hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-magnifying-glass-plus text-[10px]"></i>
+                        </div>
+
                         <div class="mt-2">
-                            <div class="border-b-2 border-dashed border-slate-200 pb-3 mb-4">
-                                <span class="bg-[#fff2cc] text-[#a06a1a] text-[10px] font-extrabold px-2 py-0.5 rounded-full border border-[#f5db99] uppercase tracking-wider">
+                            <div class="border-b-2 border-dashed border-slate-200 pb-2 mb-3">
+                                <span class="bg-[#fff2cc] text-[#a06a1a] text-[9px] font-extrabold px-2 py-0.5 rounded-full border border-[#f5db99] uppercase tracking-wider">
                                     <i class="fa-solid fa-file-invoice"></i> Help Wanted Bulletin
                                 </span>
-                                <h3 id="jd-title" class="header-font text-lg font-bold text-slate-800 mt-2">Local Cafe Barista</h3>
-                                <p id="jd-location" class="text-xs text-amber-700 font-bold mt-0.5"><i class="fa-solid fa-shop"></i> Corner Bistro (Downtown)</p>
+                                <h3 id="jd-title" class="header-font text-base font-bold text-slate-800 mt-1">Local Cafe Barista</h3>
+                                <p id="jd-location" class="text-[11px] text-amber-700 font-bold mt-0.5"><i class="fa-solid fa-shop"></i> Corner Bistro (Downtown)</p>
                             </div>
 
-                            <div class="space-y-4">
+                            <div class="space-y-3">
                                 <div>
-                                    <h4 class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Schedule & Shifts</h4>
-                                    <p id="jd-schedule" class="text-xs text-[#8a6d3b] bg-yellow-50 border border-yellow-200/50 rounded-lg p-2 mt-1 font-bold">
-                                        Saturday & Sunday mornings (6:00 AM - 12:00 PM)
-                                    </p>
+                                    <h4 class="text-[9px] uppercase font-extrabold text-slate-400 tracking-wider">About the Role</h4>
+                                    <p id="jd-about" class="text-xs text-slate-600 mt-0.5 leading-relaxed line-clamp-3">Operate transaction registers, arrange visual item stocks, and coordinate daily tasks.</p>
                                 </div>
                                 
                                 <div>
-                                    <h4 class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Duties & Scope</h4>
-                                    <p id="jd-about" class="text-xs text-slate-600 mt-1 leading-relaxed">Operate point-of-sale systems, brew drip coffee, and manage cleaning checklist during morning shift.</p>
-                                </div>
-                                
-                                <div>
-                                    <h4 class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Core Qualifications</h4>
-                                    <ul id="jd-requirements" class="list-disc list-inside text-xs text-slate-600 mt-1.5 space-y-1.5 leading-relaxed">
+                                    <h4 class="text-[9px] uppercase font-extrabold text-slate-400 tracking-wider">Required Core Qualifications & Keywords</h4>
+                                    <ul id="jd-requirements" class="list-disc list-inside text-xs text-slate-600 mt-1 space-y-1 leading-relaxed">
                                         <!-- Dynamically loaded -->
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-medium">
-                            <span><i class="fa-solid fa-briefcase mr-1"></i> Part-Time Entry Level</span>
+                        <div class="mt-4 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-medium">
+                            <span><i class="fa-solid fa-briefcase mr-1"></i> Entry Level Role</span>
                             <span id="jd-pay" class="bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded-md font-bold">$16.50 - $18.00 / hr</span>
                         </div>
                     </div>
 
                     <!-- RIGHT CLIPBOARD: CANDIDATE RESUME -->
-                    <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-xl p-6 flex flex-col justify-between desk-paper-right relative">
-                        <!-- Loose sheet blue lines pattern effect -->
-                        <div class="absolute inset-y-0 left-5 w-0.5 bg-rose-200 pointer-events-none"></div>
+                    <div onclick="openZoomModal('resume')" class="cursor-pointer bg-white rounded-2xl border-2 border-slate-200 shadow-lg p-5 flex flex-col justify-between desk-paper-right relative">
+                        <!-- Loose sheet pink margins pattern effect -->
+                        <div class="absolute inset-y-0 left-5 w-0.5 bg-rose-100 pointer-events-none"></div>
 
                         <!-- Paperclip overlay decorative -->
                         <div class="absolute -top-3.5 right-12 w-6 h-12 bg-slate-300 border border-slate-400 rounded-full opacity-90 shadow flex items-center justify-center transform rotate-12">
                             <div class="w-1 h-8 border border-slate-500 rounded-full"></div>
                         </div>
 
+                        <!-- Zoom Floating Indicator badge -->
+                        <div class="absolute top-2 right-2 bg-indigo-500 text-white rounded-full p-1.5 shadow-md pulse-zoom hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-magnifying-glass-plus text-[10px]"></i>
+                        </div>
+
                         <div class="mt-2 pl-4">
-                            <div class="border-b-2 border-slate-100 pb-3 mb-4 flex justify-between items-start">
-                                <div>
-                                    <h3 id="res-name" class="header-font text-lg font-bold text-slate-800">Alex Perez</h3>
-                                    <p id="res-education" class="text-xs text-emerald-600 font-bold mt-0.5">High School Graduate / Community College Student</p>
-                                </div>
+                            <div class="border-b-2 border-slate-100 pb-2 mb-3">
+                                <h3 id="res-name" class="header-font text-base font-bold text-slate-800">Alex Perez</h3>
+                                <p id="res-education" class="text-[10px] text-emerald-600 font-bold mt-0.5">Community College Student / Certificate Candidate</p>
                             </div>
 
-                            <div class="space-y-4">
+                            <div class="space-y-3">
+                                <!-- Professional Summary Block -->
                                 <div>
-                                    <h4 class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Work / Volunteer History</h4>
-                                    <ul id="res-experience" class="list-disc list-inside text-xs text-slate-600 mt-1.5 space-y-1.5 leading-relaxed">
+                                    <h4 class="text-[9px] uppercase font-extrabold text-slate-400 tracking-wider">Professional Summary</h4>
+                                    <p id="res-summary" class="text-xs italic text-slate-600 mt-0.5 leading-relaxed line-clamp-2">Motivated business major looking to bring reliable customer-facing skills and administrative experience to local part-time settings.</p>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-[9px] uppercase font-extrabold text-slate-400 tracking-wider">Experience & History</h4>
+                                    <ul id="res-experience" class="list-disc list-inside text-xs text-slate-600 mt-1 space-y-1 leading-relaxed">
                                         <!-- Dynamically loaded -->
                                     </ul>
                                 </div>
 
                                 <div>
-                                    <h4 class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Availability (Hours/Days)</h4>
-                                    <p id="res-availability" class="text-xs text-[#4d8585] bg-teal-50 border border-teal-200/50 rounded-lg p-2 mt-1 font-bold">
-                                        Saturdays & Sundays anytime.
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h4 class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Key Skills & Coursework</h4>
-                                    <div id="res-skills" class="flex flex-wrap gap-1 mt-2">
+                                    <h4 class="text-[9px] uppercase font-extrabold text-slate-400 tracking-wider">Keyword Skills</h4>
+                                    <div id="res-skills" class="flex flex-wrap gap-1 mt-1">
                                         <!-- Dynamically loaded -->
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-medium pl-4">
-                            <span><i class="fa-solid fa-graduation-cap mr-1"></i> Business Major</span>
-                            <span class="text-emerald-600 font-bold"><i class="fa-solid fa-circle-check"></i> Actively Looking</span>
+                        <div class="mt-4 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-medium pl-4">
+                            <span><i class="fa-solid fa-graduation-cap mr-1"></i> Active Candidate</span>
+                            <span class="text-emerald-600 font-bold"><i class="fa-solid fa-circle-check"></i> Ready to Match</span>
                         </div>
                     </div>
 
@@ -325,15 +299,15 @@
                     <!-- Red pin decoration -->
                     <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-5 h-5 bg-yellow-500 rounded-full border border-white shadow"></div>
 
-                    <p class="text-xs font-extrabold text-slate-600 uppercase tracking-wider">Will you recommend this student for this position?</p>
+                    <p class="text-xs sm:text-sm font-extrabold text-slate-700 uppercase tracking-wider text-center">Will you recommend this student for this position?</p>
                     
                     <div class="flex gap-4 w-full max-w-md">
                         <!-- YES MATCH BUTTON -->
-                        <button onclick="submitMatchChoice(true)" class="flex-1 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-bold text-sm shadow-md shadow-emerald-700/20 flex items-center justify-center gap-2 transform transition-all active:scale-95">
+                        <button onclick="submitMatchChoice(true)" class="flex-1 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-bold text-sm shadow-md shadow-emerald-700/20 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 btn-pop transition-all">
                             <i class="fa-solid fa-circle-check text-base"></i> YES (Match)
                         </button>
                         <!-- NO MATCH BUTTON -->
-                        <button onclick="submitMatchChoice(false)" class="flex-1 py-3.5 bg-rose-600 hover:bg-rose-700 text-white rounded-2xl font-bold text-sm shadow-md shadow-rose-700/20 flex items-center justify-center gap-2 transform transition-all active:scale-95">
+                        <button onclick="submitMatchChoice(false)" class="flex-1 py-3.5 bg-rose-600 hover:bg-rose-700 text-white rounded-2xl font-bold text-sm shadow-md shadow-rose-700/20 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 btn-pop transition-all">
                             <i class="fa-solid fa-circle-xmark text-base"></i> NO (Mismatch)
                         </button>
                     </div>
@@ -341,53 +315,138 @@
 
             </div>
 
+            <!-- DETAILED POPUP ZOOM INTERFACE FOR JOB DESCRIPTION -->
+            <div id="zoom-jd-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
+                <div class="bg-[#fcfbf9] border-8 border-[#b07d56] rounded-3xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-5 sm:p-6 relative shadow-2xl">
+                    <button onclick="closeZoomModal('jd')" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600 text-xl font-bold p-1">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </button>
+                    
+                    <div class="border-b-2 border-dashed border-slate-200 pb-3 mb-4">
+                        <span class="bg-[#fff2cc] text-[#a06a1a] text-xs font-bold px-3 py-1 rounded-full border border-[#f5db99] uppercase tracking-wider inline-block">
+                            <i class="fa-solid fa-file-contract"></i> Job Description Review
+                        </span>
+                        <h3 id="zoom-jd-title" class="header-font text-2xl font-bold text-slate-800 mt-2">Job Title</h3>
+                        <p id="zoom-jd-location" class="text-sm text-amber-700 font-bold mt-1"><i class="fa-solid fa-shop"></i> Cafe Location</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Duties & Role Scope</h4>
+                            <p id="zoom-jd-about" class="text-sm text-slate-600 mt-1 leading-relaxed">Full role descriptions go here...</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Core Requirements & Industry Keywords</h4>
+                            <ul id="zoom-jd-requirements" class="list-disc list-inside text-sm text-slate-600 mt-2 space-y-2 leading-relaxed">
+                                <!-- Detailed items load here -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500 font-semibold">
+                        <span><i class="fa-solid fa-briefcase mr-1"></i> Entry-Level Position</span>
+                        <span id="zoom-jd-pay" class="bg-amber-100 text-amber-800 px-3 py-1 rounded-md font-bold">$16.50 / hr</span>
+                    </div>
+
+                    <button onclick="closeZoomModal('jd')" class="w-full mt-6 py-3 bg-[#b07d56] text-white font-bold rounded-xl shadow hover:bg-[#8b5e3c]">
+                        Finished Reading <i class="fa-solid fa-circle-check ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- DETAILED POPUP ZOOM INTERFACE FOR RESUME -->
+            <div id="zoom-resume-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
+                <div class="bg-white border-8 border-slate-200 rounded-3xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-5 sm:p-6 relative shadow-2xl">
+                    <button onclick="closeZoomModal('resume')" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600 text-xl font-bold p-1">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </button>
+                    
+                    <div class="border-b-2 border-slate-100 pb-3 mb-4">
+                        <span class="bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200 uppercase tracking-wider inline-block mb-1">
+                            <i class="fa-solid fa-user-graduate"></i> Student Candidate Profile
+                        </span>
+                        <h3 id="zoom-res-name" class="header-font text-2xl font-bold text-slate-800 mt-1">Student Name</h3>
+                        <p id="zoom-res-education" class="text-xs text-emerald-600 font-bold mt-1"><i class="fa-solid fa-graduation-cap"></i> Major / Education Status</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Summary Block -->
+                        <div>
+                            <h4 class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Professional Summary</h4>
+                            <p id="zoom-res-summary" class="text-sm italic text-slate-600 mt-1.5 leading-relaxed bg-slate-50 border border-slate-100 p-3 rounded-xl shadow-inner">
+                                Professional student summary...
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Work / Volunteer History</h4>
+                            <ul id="zoom-res-experience" class="list-disc list-inside text-sm text-slate-600 mt-2 space-y-2 leading-relaxed">
+                                <!-- Detailed history -->
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Key Skills & Coursework</h4>
+                            <div id="zoom-res-skills" class="flex flex-wrap gap-1.5 mt-2">
+                                <!-- Skills -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="closeZoomModal('resume')" class="w-full mt-6 py-3 bg-slate-800 text-white font-bold rounded-xl shadow hover:bg-slate-900">
+                        Finished Reading <i class="fa-solid fa-circle-check ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
             <!-- "THEN WHY?" DESK DRAWER FEEDBACK MODAL -->
             <div id="explanation-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
                 <div class="bg-white border-8 border-[#8b5e3c] rounded-3xl shadow-2xl max-w-lg w-full p-6 text-center transform transition-all duration-300 scale-95 opacity-0 relative" id="modal-box">
                     
                     <!-- Paper Tag Badge -->
-                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-yellow-100 border-2 border-yellow-300 text-[#8a6d3b] text-xs font-bold px-4 py-1 rounded-full shadow-md uppercase tracking-widest">
+                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-yellow-100 border-2 border-yellow-300 text-[#8a6d3b] text-xs font-bold px-4 py-1 rounded-full shadow-md uppercase tracking-wider">
                         Advisor Desk Analysis
                     </div>
 
-                    <!-- Status Icon -->
+                    <!-- Status Icon Holder -->
                     <div class="mx-auto w-14 h-14 rounded-full flex items-center justify-center text-3xl mb-3 mt-2 shadow-inner" id="modal-status-icon">
-                        📝
+                        <i class="fa-solid fa-clipboard-question"></i>
                     </div>
 
                     <span id="modal-status-text" class="text-[10px] uppercase font-extrabold tracking-widest px-3 py-1 rounded-full mb-1 inline-block bg-slate-100 text-slate-700">
                         Analyzing application details...
                     </span>
 
-                    <h3 class="header-font text-xl font-bold text-slate-800 mb-3" id="modal-title">
+                    <h3 class="header-font text-lg sm:text-xl font-bold text-slate-800 mb-3" id="modal-title">
                         Evaluating Match Results
                     </h3>
 
                     <!-- WHY CONTENT (STICKY NOTE DESIGN) -->
-                    <div class="bg-yellow-50 p-5 rounded-2xl border-2 border-yellow-200 text-left space-y-3 mb-6 relative shadow-inner">
+                    <div class="bg-yellow-50 p-4 sm:p-5 rounded-2xl border-2 border-yellow-200 text-left space-y-3 mb-6 relative shadow-inner">
                         <div class="absolute top-1 right-3 text-slate-300/60 text-xl"><i class="fa-solid fa-note-sticky"></i></div>
                         <h4 class="font-extrabold text-xs text-amber-800 uppercase tracking-wider flex items-center gap-1.5 border-b border-yellow-200 pb-1.5">
                             <i class="fa-solid fa-lightbulb"></i> THEN WHY? (Recruiting Tip)
                         </h4>
-                        <p id="modal-explanation-text" class="text-xs text-slate-600 leading-relaxed">
+                        <p id="modal-explanation-text" class="text-xs sm:text-sm text-slate-600 leading-relaxed">
                             No matching explanations found.
                         </p>
                     </div>
 
                     <!-- PROGRESS CONTROLLER -->
-                    <button onclick="closeMatchExplanation()" class="w-full py-3.5 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transform transition-all active:scale-95">
+                    <button onclick="closeMatchExplanation()" class="w-full py-3.5 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transform hover:-translate-y-0.5 btn-pop transition-all">
                         Pull Next Resume <i class="fa-solid fa-folder-open"></i>
                     </button>
                 </div>
             </div>
 
             <!-- COMPREHENSIVE SCORECARD / GRADUATION SCREEN -->
-            <div id="report-screen" class="hidden bg-white border-8 border-[#cbb092] rounded-3xl p-8 shadow-2xl max-w-xl mx-auto my-auto text-center relative">
+            <div id="report-screen" class="hidden bg-white border-8 border-[#cbb092] rounded-3xl p-6 sm:p-8 shadow-2xl max-w-xl mx-auto my-auto text-center relative">
                 <!-- Golden Pin decoration -->
                 <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-yellow-500 rounded-full border-2 border-white shadow"></div>
 
                 <span class="inline-block bg-emerald-50 text-emerald-700 border border-emerald-200 px-4 py-1 rounded-full text-xs font-bold mb-4 uppercase tracking-wider">
-                    🏆 Evaluation Complete
+                    <i class="fa-solid fa-award"></i> Evaluation Complete
                 </span>
 
                 <h2 class="header-font text-2xl font-extrabold mb-1 text-slate-800">Recruiter Desk Certified!</h2>
@@ -397,15 +456,15 @@
                 <div class="grid grid-cols-3 gap-3 mb-6">
                     <div class="p-3 bg-amber-50 rounded-2xl border border-amber-200">
                         <p class="text-[9px] text-amber-700 uppercase font-extrabold tracking-wider">Score</p>
-                        <p id="report-score" class="text-xl font-bold text-amber-800">0</p>
+                        <p id="report-score" class="text-lg sm:text-xl font-bold text-amber-800">0</p>
                     </div>
                     <div class="p-3 bg-emerald-50 rounded-2xl border border-emerald-200">
                         <p class="text-[9px] text-emerald-700 uppercase font-extrabold tracking-wider">Accuracy</p>
-                        <p id="report-accuracy" class="text-xl font-bold text-emerald-800">0%</p>
+                        <p id="report-accuracy" class="text-lg sm:text-xl font-bold text-emerald-800">0%</p>
                     </div>
                     <div class="p-3 bg-blue-50 rounded-2xl border border-blue-200">
                         <p class="text-[9px] text-blue-700 uppercase font-extrabold tracking-wider">Max Streak</p>
-                        <p id="report-streak" class="text-xl font-bold text-blue-800">x0</p>
+                        <p id="report-streak" class="text-lg sm:text-xl font-bold text-blue-800">x0</p>
                     </div>
                 </div>
 
@@ -415,13 +474,13 @@
                         <i class="fa-solid fa-graduation-cap"></i> Classroom Resume Key Lessons:
                     </h4>
                     <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
-                        <li><strong class="text-amber-800">Check Your Schedule First:</strong> If a job description lists explicit shift requirements (like Saturday mornings), a candidate's availability is critical.</li>
-                        <li><strong class="text-amber-800">Highlight Transferable Skills:</strong> Babysitting counts as time management. Fast food cash registers count as customer service. Reframe experience!</li>
-                        <li><strong class="text-amber-800">Customize Your Keywords:</strong> Don't use a generic resume for every position. If the desk asks for Canva or Microsoft Office, those exact words belong on your resume.</li>
+                        <li><strong class="text-amber-800">Align Core Keywords:</strong> Employers screen resumes looking for exact vocabulary like **POS cash transactions**, specific database tools, or graphic formats. Verify that your resume matches the job post requirements exactly!</li>
+                        <li><strong class="text-amber-800">Highlight Transferable Skills:</strong> Casual or informal labor counts. Babysitting shows leadership and time-tracking, and volunteer cashier shifts prove financial accuracy. Frame these as valuable experiences.</li>
+                        <li><strong class="text-amber-800">Summarize Your Target:</strong> A direct **Professional Summary** at the top is crucial. It connects your background to the job description requirements in the first six seconds of review.</li>
                     </ul>
                 </div>
 
-                <button onclick="restartMatchGame()" class="w-full sm:w-auto px-8 py-3.5 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-sm shadow-md transform hover:-translate-y-1 transition-all active:scale-95">
+                <button onclick="restartMatchGame()" class="w-full sm:w-auto px-8 py-3.5 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-sm shadow-md transform hover:-translate-y-0.5 btn-pop transition-all">
                     <i class="fa-solid fa-rotate-left mr-1"></i> Clean Desk & Try Again
                 </button>
             </div>
@@ -502,147 +561,142 @@
             }
         };
 
-        // Everyday Entry-Level Job Rounds Database
+        // Everyday Entry-Level Job Rounds Database Focused on Qualifications, Core Keywords & Summary Analysis
         const deskRounds = [
             {
                 id: 1,
                 jd: {
                     title: "Part-Time Barista & Cashier",
                     location: "Corner Cup Coffee House",
-                    schedule: "Saturdays & Sundays (6:00 AM - 1:00 PM)",
-                    about: "We need an energetic barista to brew drip coffee, handle the cash register, and keep the customer sitting area clean during our high-traffic weekend mornings.",
+                    about: "Join our fast-paced coffee shop! We are looking for an energetic, customer-focused team member who can process customer payments accurately, organize daily item stocks, and coordinate desk transactions.",
                     requirements: [
-                        "Must have availability on **both Saturday and Sunday mornings**.",
-                        "Ability to count money, handle cash registers, and manage card systems.",
-                        "Friendly communication style to interact with regular morning customers."
+                        "Demonstrated experience with **POS cash transactions** and cash registers.",
+                        "Excellent active listening skills to process customized beverage and food orders.",
+                        "Direct experience with visual **item inventory restocking** and shelf organizing."
                     ],
                     pay: "$15.50 - $17.50 / hr"
                 },
                 candidate: {
                     name: "Alex Rivera",
-                    education: "Full-Time Community College Student (Business major)",
+                    education: "Full-Time Community College Student (Business Administration)",
+                    summary: "Outgoing Business student with direct **POS cash transactions** and **item inventory restocking** experience. Eager to bring reliable transaction coordination and guest relation skills to a busy service role.",
                     experience: [
-                        "Worked as **Concession Stand Cashier** at High School sports games.",
-                        "Volunteer at local food bank; managed **cash drawer** and sorted deliveries."
+                        "Worked as **Concession Stand Cashier** at High School football games; managed fast card and cash transactions.",
+                        "Volunteer at local food bank; balanced the weekly cash drawer and sorted incoming pantry deliveries."
                     ],
-                    availability: "Saturdays & Sundays anytime. (Open availability on weekends)",
-                    skills: ["Cash Handling", "Customer Service", "Punctual", "Teamwork", "Fast Learner"]
+                    skills: ["POS cash transactions", "Customer Service", "Punctual", "Teamwork", "Item inventory restocking"]
                 },
                 isMatch: true,
                 title: "Fantastic Fit! Recommend Alex!",
-                why: "This is a perfect weekend entry-level match! Alex has cash-handling experience from high school concessions and food banks. Most importantly, their weekend availability fits the schedule perfectly."
+                why: "This is a direct keyword match! Alex has solid cash drawer management experience and POS familiarity from concession sales and volunteer shifts. Their professional summary also explicitly states their career readiness for transaction coordination and item inventory restocking."
             },
             {
                 id: 2,
                 jd: {
                     title: "Front Desk Receptionist",
                     location: "County Dental Clinic",
-                    schedule: "Mondays & Wednesdays (8:00 AM - 12:00 PM)",
-                    about: "Greet arriving dental patients, answer high-volume phone lines, schedule routine appointments using computer software, and file paper records.",
+                    about: "Looking for an organized office helper to coordinate patient arrivals, manage phone lines, and input patient updates into our dental spreadsheet systems.",
                     requirements: [
-                        "Experience answering phone lines with formal phone etiquette.",
-                        "Must be proficient in using **Microsoft Word and basic computer entries**.",
-                        "Available during core weekday morning blocks."
+                        "Proficient command of **Microsoft Excel spreadsheets** for inputting administrative entries.",
+                        "Clear verbal communication phone etiquette to coordinate incoming insurance queries.",
+                        "Demonstrated organizational attention to detail in high-volume clerical settings."
                     ],
                     pay: "$18.00 - $20.00 / hr"
                 },
                 candidate: {
                     name: "Jordan Smith",
                     education: "Early Childhood Education Major",
+                    summary: "Caring and creative Childcare student seeking to leverage safety compliance protocols, CPR certifications, and physical play scheduling skills inside a collaborative, supportive community environment.",
                     experience: [
-                        "Part-time **Babysitter** for 3 local neighborhood families.",
-                        "Planned structured crafts and educational play modules for children."
+                        "Dedicated local **Babysitter** for 3 neighborhood families; scheduled routine structured learning programs.",
+                        "Organized group outdoor play and planned educational crafts for children aged 4-10."
                     ],
-                    availability: "Mondays & Wednesdays (8:00 AM - 4:00 PM)",
-                    skills: ["Creative", "CPR Certified", "Patience", "Child Management"]
+                    skills: ["Creative", "CPR Certified", "Patience", "Child Safety Coordination", "First Aid"]
                 },
                 isMatch: false,
                 title: "Not a Match! (Missing Office Tools)",
-                why: "No match. While Jordan's availability matches, they do not list any experience with office software, computers, or professional telephone systems. Babysitting is great, but this desk needs tech skills."
+                why: "No match. While Jordan is caring and dependable, their professional summary and qualifications show zero alignment with computer software like Microsoft Excel spreadsheets, phone systems, or office clerical skills. Jordan needs to list basic office tools or digital course certifications to qualify."
             },
             {
                 id: 3,
                 jd: {
                     title: "Retail Sales Associate",
                     location: "StyleBound Apparel Outlet",
-                    schedule: "Friday afternoons & Saturdays (12:00 PM - 6:00 PM)",
-                    about: "Engage with shoppers, fold clothing displays, process transactions using iPads, and clean dressing rooms.",
+                    about: "Help our weekend fashion team engage shoppers, keep visual displays tidy, organize shelves, and manage touch-screen iPad checkout transactions.",
                     requirements: [
-                        "Friendly and energetic personality with interest in retail/customer styles.",
-                        "Must list basic cash management or **customer interaction** experience.",
-                        "Willingness to stand on your feet for extended 6-hour retail shifts."
+                        "Comfortable initiating conversations and explaining visual retail style trends.",
+                        "Ability to process high-volume digital transactions using **iPad billing software**.",
+                        "Reliable team worker with experience resolving high-volume **customer order changes**."
                     ],
                     pay: "$16.00 / hr + employee discount"
                 },
                 candidate: {
                     name: "Morgan Taylor",
                     education: "Liberal Arts Student (Part-Time)",
+                    summary: "Enthusiastic Liberal Arts sophomore with 6+ months experience coordinating fast-paced food service orders. Committed to translating high-speed active listening and transaction handling into apparel client relations.",
                     experience: [
-                        "Worked at local **Fast-Food Drive Thru Window** for 6 months.",
-                        "Welcomed customers, verified order correctness, and handled transactions."
+                        "Worked at local **Fast-Food Drive Thru Window** for 6 months; operated touch-screen **iPad billing software**.",
+                        "Welcomed arrivals, resolved food and **customer order changes**, and processed card transactions under strict timer goals."
                     ],
-                    availability: "Friday & Saturday afternoons (Available 10 AM - 8 PM)",
-                    skills: ["Active Listener", "Fast Transactions", "Organized", "Friendly Demeanor"]
+                    skills: ["Active Listener", "iPad billing software", "High-Volume Sales", "Customer order changes", "Friendly Demeanor"]
                 },
                 isMatch: true,
                 title: "Great Fit! Recommend Morgan!",
-                why: "This is a strong match! Morgan's drive-thru window history proves they are friendly, comfortable with high-volume customer service, and fast at handling point-of-sale transactions."
+                why: "This is a strong match! Morgan uses excellent transferable skills. Working at a busy fast-food window translates perfectly to welcoming boutique guests, managing checkout iPad billing software, and addressing customer order changes."
             },
             {
                 id: 4,
                 jd: {
                     title: "Library Assistant",
                     location: "Campus Library (Study Wing)",
-                    schedule: "Tuesdays & Thursdays (4:00 PM - 8:00 PM)",
-                    about: "Assist visitors in navigating digital catalogs, check out textbook reserves, and shelve incoming publications in alphabetical order.",
+                    about: "Help students navigate academic archives, check out materials, organize incoming textbook stacks in proper numeric systems, and manage visual desk schedules.",
                     requirements: [
-                        "Strong attention to detail with **alphabetical and numeric filing**.",
-                        "Comfortable using digital catalog software searches.",
-                        "Ability to lift 25 lbs to organize textbook shelves."
+                        "Attention to detail with structural **alphabetical filing** systems.",
+                        "Familiarity searching through digital academic archives or indexing databases.",
+                        "Ability to sit or stand for 4-hour desk shifts maintaining absolute quiet-zone etiquette."
                     ],
                     pay: "$15.00 / hr"
                 },
                 candidate: {
                     name: "Taylor Jenkins",
                     education: "Welding Certificate Student",
+                    summary: "Goal-oriented technical student seeking to apply physical workshop organization, manual handling safety protocols, and operational safety workflows to an active assistant role.",
                     experience: [
-                        "Worked as **Construction Helper & Welder's Assistant** for family business.",
-                        "Managed physical tool organization, loading supplies, and manual labor."
+                        "Worked as **Construction Helper & Welder's Assistant** for family firm.",
+                        "Managed physical supply storage arrays, updated safety checklists, and handled heavy machinery prep."
                     ],
-                    availability: "Tuesdays & Thursdays (1:00 PM - 9:00 PM)",
-                    skills: ["Physical Stamina", "Heavy Lifting", "Safety Procedures", "Punctuality"]
+                    skills: ["Physical Stamina", "Heavy Lifting", "Safety Compliance", "Tool Sorting", "Punctuality"]
                 },
                 isMatch: false,
                 title: "Not a Match! (Missing Organizational Clues)",
-                why: "No match. Taylor is highly punctual and strong, but their resume only lists physical labor tasks. They do not demonstrate digital literacy, catalog experience, or detail-oriented office work."
+                why: "No match. Taylor is highly punctual, but physical construction labor and tool staging do not translate into digital catalog database retrieval, alphabetized record keeping, or library indexing. They lack the necessary keyword alignment like alphabetical filing."
             },
             {
                 id: 5,
                 jd: {
                     title: "Social Media Assistant",
                     location: "Apex Real Estate Brokerage",
-                    schedule: "Flexible remote work (10 hours a week)",
-                    about: "Help our real estate team generate graphic templates for new housing listings and upload weekly short-form video reels.",
+                    about: "We are seeking a creative assistant to design social media graphic flyers, generate listing brochures, and coordinate weekly video uploads to grow our online community presence.",
                     requirements: [
-                        "Proficient with design layout creation inside **Canva**.",
-                        "Familiarity posting and editing reels on Instagram and TikTok.",
-                        "Must supply 2 mock posts or standard portfolio links."
+                        "Proficient in creating dynamic promotional graphic flyers inside **Canva graphic software**.",
+                        "Experienced with editing short-form video formats and analyzing **Instagram video metrics**.",
+                        "Familiarity with online digital marketing layouts and local brand alignment."
                     ],
                     pay: "$17.00 / hr"
                 },
                 candidate: {
                     name: "Riley Cooper",
                     education: "Communication Studies Major",
+                    summary: "Creative Communications major with hands-on experience designing brand assets, establishing independent ecommerce channels, and generating online follower growth through custom digital campaigns.",
                     experience: [
-                        "Created marketing flyers and event invitations using **Canva**.",
-                        "Manages own **vintage clothing resell shop on Instagram** with 1,200+ followers."
+                        "Designed professional community marketing flyers and club event invitations using **Canva graphic software**.",
+                        "Launched and managed a successful vintage clothing resell shop on Instagram; analyzed **Instagram video metrics** to scale organic post reach."
                     ],
-                    availability: "Flexible weekdays and evenings.",
-                    skills: ["Canva Layouts", "Instagram & TikTok Posting", "Creative Design", "Social Analytics"]
+                    skills: ["Canva graphic software", "Instagram video metrics", "Creative Copywriting", "Social Media Analytics", "Customer Outreach"]
                 },
                 isMatch: true,
                 title: "Spot on Match! Recommend Riley!",
-                why: "Excellent match! Riley doesn't have corporate office experience, but their creative design workflow in Canva and practical management of their own active vintage Instagram shop proves they have exactly the social media + design skills needed."
+                why: "Perfect match! Even though Riley lacks a formal office background, their direct work creating templates in Canva graphic software and growing a real business using Instagram video metrics shows the exact content creation skills requested."
             }
         ];
 
@@ -657,16 +711,16 @@
         // Interactive Walkthrough configurations
         const tutorialSteps = [
             {
-                title: "1. The Desk Clipboard (Left)",
-                text: "The paper on the left is the Job Description. Pay close attention to two details: the **Shift Schedule** and the **Required Skills**."
+                title: "1. The Job Description (Left)",
+                text: "Read the clipboard on the left to identify required certifications, core keywords, and duties. (Tip: You can click it anytime to zoom!)"
             },
             {
                 title: "2. The Student Resume (Right)",
-                text: "The notebook paper on the right contains the Student's profile. Verify if their listed **Availability** and **Experience** align with the Job Description."
+                text: "Examine the resume on the right. Look closely at their Summary, Experience, and Skills to find matching keyword clues."
             },
             {
-                title: "3. Make Your Advisor Decision",
-                text: "If the student's skills match the needs and they can work those hours, click **Yes (Match)**. If they lack the core requirements or have scheduling conflicts, select **No (Mismatch)**."
+                title: "3. Choose & Inspect",
+                text: "Decide if they match. Click YES or NO. Afterward, read the 'Then Why?' feedback to master professional resume evaluation!"
             }
         ];
 
@@ -713,6 +767,61 @@
             triggerTutorial();
         }
 
+        // Zoom Modal Functions
+        function openZoomModal(type) {
+            AudioSys.playRustle();
+            const roundData = deskRounds[currentRound];
+            
+            if (type === 'jd') {
+                document.getElementById('zoom-jd-title').innerText = roundData.jd.title;
+                document.getElementById('zoom-jd-location').innerHTML = `<i class="fa-solid fa-shop"></i> ${roundData.jd.location}`;
+                document.getElementById('zoom-jd-about').innerText = roundData.jd.about;
+                document.getElementById('zoom-jd-pay').innerText = roundData.jd.pay;
+
+                const reqsZoom = document.getElementById('zoom-jd-requirements');
+                reqsZoom.innerHTML = '';
+                roundData.jd.requirements.forEach(req => {
+                    const li = document.createElement('li');
+                    li.innerHTML = req.replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#a06a1a]">$1</strong>');
+                    reqsZoom.appendChild(li);
+                });
+
+                document.getElementById('zoom-jd-modal').classList.remove('hidden');
+            } else if (type === 'resume') {
+                document.getElementById('zoom-res-name').innerText = roundData.candidate.name;
+                document.getElementById('zoom-res-education').innerText = roundData.candidate.education;
+                document.getElementById('zoom-res-summary').innerText = roundData.candidate.summary;
+
+                const expZoom = document.getElementById('zoom-res-experience');
+                expZoom.innerHTML = '';
+                roundData.candidate.experience.forEach(exp => {
+                    const li = document.createElement('li');
+                    li.innerHTML = exp.replace(/\*\*(.*?)\*\*/g, '<strong class="text-emerald-700">$1</strong>');
+                    expZoom.appendChild(li);
+                });
+
+                const skillsZoom = document.getElementById('zoom-res-skills');
+                skillsZoom.innerHTML = '';
+                roundData.candidate.skills.forEach(skill => {
+                    const span = document.createElement('span');
+                    span.className = "bg-slate-100 text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full border border-slate-200 shadow-sm";
+                    span.innerText = skill;
+                    skillsZoom.appendChild(span);
+                });
+
+                document.getElementById('zoom-resume-modal').classList.remove('hidden');
+            }
+        }
+
+        function closeZoomModal(type) {
+            AudioSys.playRustle();
+            if (type === 'jd') {
+                document.getElementById('zoom-jd-modal').classList.add('hidden');
+            } else if (type === 'resume') {
+                document.getElementById('zoom-resume-modal').classList.add('hidden');
+            }
+        }
+
         // Load targeted Round Data
         function loadActiveRound(idx) {
             AudioSys.playRustle();
@@ -722,10 +831,9 @@
             // Update Progress Header Counter
             document.getElementById('hud-progress').innerText = `${idx + 1}/${deskRounds.length}`;
 
-            // Fill Job Description Paper
+            // Fill Job Description Paper (Left Card Preview)
             document.getElementById('jd-title').innerText = roundData.jd.title;
             document.getElementById('jd-location').innerHTML = `<i class="fa-solid fa-shop"></i> ${roundData.jd.location}`;
-            document.getElementById('jd-schedule').innerText = roundData.jd.schedule;
             document.getElementById('jd-about').innerText = roundData.jd.about;
             document.getElementById('jd-pay').innerText = roundData.jd.pay;
 
@@ -733,15 +841,14 @@
             reqsContainer.innerHTML = '';
             roundData.jd.requirements.forEach(req => {
                 const li = document.createElement('li');
-                // Auto bold markdown emphasis tags
                 li.innerHTML = req.replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#8a6d3b]">$1</strong>');
                 reqsContainer.appendChild(li);
             });
 
-            // Fill Resume Paper
+            // Fill Resume Paper (Right Card Preview)
             document.getElementById('res-name').innerText = roundData.candidate.name;
             document.getElementById('res-education').innerText = roundData.candidate.education;
-            document.getElementById('res-availability').innerText = roundData.candidate.availability;
+            document.getElementById('res-summary').innerText = roundData.candidate.summary;
 
             const expContainer = document.getElementById('res-experience');
             expContainer.innerHTML = '';
@@ -780,9 +887,9 @@
                 const pointsGained = 100 + (streakMultiplier * 20);
                 userPoints += pointsGained;
 
-                // Success Modal Styling
+                // Success Modal Styling (Using safe FontAwesome icons)
                 mIcon.className = "mx-auto w-14 h-14 rounded-full flex items-center justify-center text-2xl mb-3 mt-2 shadow-inner bg-emerald-100 text-emerald-700";
-                mIcon.innerHTML = "🎯";
+                mIcon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
                 mStatus.className = "text-[10px] uppercase font-extrabold tracking-widest px-3 py-1 rounded-full mb-1 inline-block bg-emerald-100 text-emerald-800";
                 mStatus.innerText = "Accurate Decision!";
                 mTitle.innerText = roundData.title;
@@ -794,9 +901,9 @@
                 missedDecisions++;
                 userPoints = Math.max(0, userPoints - 50); // Minimal penalty
 
-                // Error Modal Styling
+                // Error Modal Styling (Using safe FontAwesome icons)
                 mIcon.className = "mx-auto w-14 h-14 rounded-full flex items-center justify-center text-2xl mb-3 mt-2 shadow-inner bg-rose-100 text-rose-700";
-                mIcon.innerHTML = "❌";
+                mIcon.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
                 mStatus.className = "text-[10px] uppercase font-extrabold tracking-widest px-3 py-1 rounded-full mb-1 inline-block bg-rose-100 text-rose-800";
                 mStatus.innerText = "Desk Mismatch";
                 mTitle.innerText = `Actually, it was ${roundData.isMatch ? 'a Match!' : 'a Mismatch!'}`;
@@ -804,7 +911,7 @@
                 triggerDeskToast("Check Paperwork!", "Review the advisor guidelines on the paper.", "error");
             }
 
-            mExplain.innerText = roundData.why;
+            mExplain.innerHTML = roundData.why.replace(/\*\*(.*?)\*\*/g, '<strong class="text-amber-800">$1</strong>');
 
             // Sync HUD Counters
             document.getElementById('hud-score').innerText = userPoints;
