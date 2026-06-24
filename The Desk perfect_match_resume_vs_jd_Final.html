@@ -128,7 +128,7 @@
                         The Desk: Perfect Match
                     </h2>
                     <p class="text-slate-600 mb-5 text-sm leading-relaxed max-w-md mx-auto">
-                        Welcome to your internship at the Career Advising Center! Your task is simple: review local everyday job openings and determine if the student's resume is an appropriate match based on qualifications, core experiences, and keywords.
+                        Welcome to your internship at the Career Advising Center! Your task is simple: review local everyday job openings and determine if the student's resume is an appropriate match.
                     </p>
 
                     <!-- SIMPLIFIED RULES CARD -->
@@ -155,7 +155,7 @@
                         </ul>
                     </div>
 
-                    <button onclick="startGame()" class="w-full sm:w-auto px-10 py-4 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-md shadow-lg shadow-[#8b5e3c]/25 transform hover:-translate-y-0.5 btn-pop transition-all">
+                    <button onclick="startGame()" class="w-full sm:w-auto px-10 py-4 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-md shadow-lg shadow-[#8b5e3c]/25 transform hover:scale-105 transition-transform btn-pop">
                         Sit at Desk & Start <i class="fa-solid fa-chair ml-1"></i>
                     </button>
                 </div>
@@ -224,7 +224,7 @@
                             <div class="space-y-3">
                                 <div>
                                     <h4 class="text-[9px] uppercase font-extrabold text-slate-400 tracking-wider">About the Role</h4>
-                                    <p id="jd-about" class="text-xs text-slate-600 mt-0.5 leading-relaxed line-clamp-3">Operate transaction registers, arrange visual item stocks, and coordinate daily tasks.</p>
+                                    <p id="jd-about" class="text-xs text-slate-600 mt-0.5 leading-relaxed line-clamp-3">Operate transaction registers, arrange visual item stocks, and coordinate daily operations.</p>
                                 </div>
                                 
                                 <div>
@@ -267,7 +267,7 @@
                                 <!-- Professional Summary Block -->
                                 <div>
                                     <h4 class="text-[9px] uppercase font-extrabold text-slate-400 tracking-wider">Professional Summary</h4>
-                                    <p id="res-summary" class="text-xs italic text-slate-600 mt-0.5 leading-relaxed line-clamp-2">Motivated business major looking to bring reliable customer-facing skills and administrative experience to local part-time settings.</p>
+                                    <p id="res-summary" class="text-xs italic text-slate-600 mt-0.5 leading-relaxed line-clamp-2">Motivated business major looking to bring reliable customer-facing skills.</p>
                                 </div>
 
                                 <div>
@@ -303,11 +303,11 @@
                     
                     <div class="flex gap-4 w-full max-w-md">
                         <!-- YES MATCH BUTTON -->
-                        <button onclick="submitMatchChoice(true)" class="flex-1 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-bold text-sm shadow-md shadow-emerald-700/20 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 btn-pop transition-all">
+                        <button onclick="submitMatchChoice(true)" class="flex-1 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-bold text-sm shadow-md shadow-emerald-700/20 flex items-center justify-center gap-2 btn-pop">
                             <i class="fa-solid fa-circle-check text-base"></i> YES (Match)
                         </button>
                         <!-- NO MATCH BUTTON -->
-                        <button onclick="submitMatchChoice(false)" class="flex-1 py-3.5 bg-rose-600 hover:bg-rose-700 text-white rounded-2xl font-bold text-sm shadow-md shadow-rose-700/20 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 btn-pop transition-all">
+                        <button onclick="submitMatchChoice(false)" class="flex-1 py-3.5 bg-rose-600 hover:bg-rose-700 text-white rounded-2xl font-bold text-sm shadow-md shadow-rose-700/20 flex items-center justify-center gap-2 btn-pop">
                             <i class="fa-solid fa-circle-xmark text-base"></i> NO (Mismatch)
                         </button>
                     </div>
@@ -405,7 +405,7 @@
                 <div class="bg-white border-8 border-[#8b5e3c] rounded-3xl shadow-2xl max-w-lg w-full p-6 text-center transform transition-all duration-300 scale-95 opacity-0 relative" id="modal-box">
                     
                     <!-- Paper Tag Badge -->
-                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-yellow-100 border-2 border-yellow-300 text-[#8a6d3b] text-xs font-bold px-4 py-1 rounded-full shadow-md uppercase tracking-wider">
+                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-yellow-100 border-2 border-yellow-300 text-[#8a6d3b] text-xs font-bold px-4 py-1 rounded-full shadow-md uppercase tracking-wide">
                         Advisor Desk Analysis
                     </div>
 
@@ -434,7 +434,7 @@
                     </div>
 
                     <!-- PROGRESS CONTROLLER -->
-                    <button onclick="closeMatchExplanation()" class="w-full py-3.5 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transform hover:-translate-y-0.5 btn-pop transition-all">
+                    <button onclick="closeMatchExplanation()" class="w-full py-3.5 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-sm shadow-md flex items-center justify-center gap-2">
                         Pull Next Resume <i class="fa-solid fa-folder-open"></i>
                     </button>
                 </div>
@@ -474,13 +474,13 @@
                         <i class="fa-solid fa-graduation-cap"></i> Classroom Resume Key Lessons:
                     </h4>
                     <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
-                        <li><strong class="text-amber-800">Align Core Keywords:</strong> Employers screen resumes looking for exact vocabulary like **POS cash transactions**, specific database tools, or graphic formats. Verify that your resume matches the job post requirements exactly!</li>
-                        <li><strong class="text-amber-800">Highlight Transferable Skills:</strong> Casual or informal labor counts. Babysitting shows leadership and time-tracking, and volunteer cashier shifts prove financial accuracy. Frame these as valuable experiences.</li>
-                        <li><strong class="text-amber-800">Summarize Your Target:</strong> A direct **Professional Summary** at the top is crucial. It connects your background to the job description requirements in the first six seconds of review.</li>
+                        <li><strong class="text-amber-800">Align Core Keywords:</strong> Employers screen resumes for exact vocabulary. Match job description keywords exactly.</li>
+                        <li><strong class="text-amber-800">Highlight Transferable Skills:</strong> Casual labor counts. Babysitting shows leadership and volunteer work shows responsibility.</li>
+                        <li><strong class="text-amber-800">Summarize Your Target:</strong> A direct Professional Summary at the top is crucial. It connects your background to the job description.</li>
                     </ul>
                 </div>
 
-                <button onclick="restartMatchGame()" class="w-full sm:w-auto px-8 py-3.5 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-sm shadow-md transform hover:-translate-y-0.5 btn-pop transition-all">
+                <button onclick="restartMatchGame()" class="w-full sm:w-auto px-8 py-3.5 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-sm shadow-md transform hover:-translate-y-0.5 transition-transform">
                     <i class="fa-solid fa-rotate-left mr-1"></i> Clean Desk & Try Again
                 </button>
             </div>
@@ -568,7 +568,7 @@
                 jd: {
                     title: "Part-Time Barista & Cashier",
                     location: "Corner Cup Coffee House",
-                    about: "Join our fast-paced coffee shop! We are looking for an energetic, customer-focused team member who can process customer payments accurately, organize daily item stocks, and coordinate desk transactions.",
+                    about: "Join our fast-paced coffee shop! We are looking for an energetic, customer-focused team member who can process customer payments accurately, organize daily item stocks, and keep our cafe running smoothly.",
                     requirements: [
                         "Demonstrated experience with **POS cash transactions** and cash registers.",
                         "Excellent active listening skills to process customized beverage and food orders.",
@@ -579,7 +579,7 @@
                 candidate: {
                     name: "Alex Rivera",
                     education: "Full-Time Community College Student (Business Administration)",
-                    summary: "Outgoing Business student with direct **POS cash transactions** and **item inventory restocking** experience. Eager to bring reliable transaction coordination and guest relation skills to a busy service role.",
+                    summary: "Outgoing Business student with direct **POS cash transactions** and **item inventory restocking** experience. Eager to bring reliable transaction coordination and guest relations.",
                     experience: [
                         "Worked as **Concession Stand Cashier** at High School football games; managed fast card and cash transactions.",
                         "Volunteer at local food bank; balanced the weekly cash drawer and sorted incoming pantry deliveries."
@@ -588,7 +588,7 @@
                 },
                 isMatch: true,
                 title: "Fantastic Fit! Recommend Alex!",
-                why: "This is a direct keyword match! Alex has solid cash drawer management experience and POS familiarity from concession sales and volunteer shifts. Their professional summary also explicitly states their career readiness for transaction coordination and item inventory restocking."
+                why: "This is a direct keyword match! Alex has solid cash drawer management experience and POS familiarity from concession sales and volunteer shifts. Their professional summary aligns perfectly with the barista role."
             },
             {
                 id: 2,
@@ -606,7 +606,7 @@
                 candidate: {
                     name: "Jordan Smith",
                     education: "Early Childhood Education Major",
-                    summary: "Caring and creative Childcare student seeking to leverage safety compliance protocols, CPR certifications, and physical play scheduling skills inside a collaborative, supportive community environment.",
+                    summary: "Caring and creative Childcare student seeking to leverage safety compliance protocols, CPR certifications, and physical play scheduling skills inside a collaborative, supportive environment.",
                     experience: [
                         "Dedicated local **Babysitter** for 3 neighborhood families; scheduled routine structured learning programs.",
                         "Organized group outdoor play and planned educational crafts for children aged 4-10."
@@ -615,7 +615,7 @@
                 },
                 isMatch: false,
                 title: "Not a Match! (Missing Office Tools)",
-                why: "No match. While Jordan is caring and dependable, their professional summary and qualifications show zero alignment with computer software like Microsoft Excel spreadsheets, phone systems, or office clerical skills. Jordan needs to list basic office tools or digital course certifications to qualify."
+                why: "No match. While Jordan is caring and dependable, their professional summary and qualifications show zero alignment with computer software like Microsoft Excel spreadsheets, phone reception duties, or clerical office work."
             },
             {
                 id: 3,
@@ -633,7 +633,7 @@
                 candidate: {
                     name: "Morgan Taylor",
                     education: "Liberal Arts Student (Part-Time)",
-                    summary: "Enthusiastic Liberal Arts sophomore with 6+ months experience coordinating fast-paced food service orders. Committed to translating high-speed active listening and transaction handling into apparel client relations.",
+                    summary: "Enthusiastic Liberal Arts sophomore with 6+ months experience coordinating fast-paced food service orders. Committed to translating high-speed active listening and transaction management to retail.",
                     experience: [
                         "Worked at local **Fast-Food Drive Thru Window** for 6 months; operated touch-screen **iPad billing software**.",
                         "Welcomed arrivals, resolved food and **customer order changes**, and processed card transactions under strict timer goals."
@@ -642,7 +642,7 @@
                 },
                 isMatch: true,
                 title: "Great Fit! Recommend Morgan!",
-                why: "This is a strong match! Morgan uses excellent transferable skills. Working at a busy fast-food window translates perfectly to welcoming boutique guests, managing checkout iPad billing software, and addressing customer order changes."
+                why: "This is a strong match! Morgan uses excellent transferable skills. Working at a busy fast-food window translates perfectly to welcoming boutique guests, managing checkout iPad billing, and handling customer order modifications."
             },
             {
                 id: 4,
@@ -669,7 +669,7 @@
                 },
                 isMatch: false,
                 title: "Not a Match! (Missing Organizational Clues)",
-                why: "No match. Taylor is highly punctual, but physical construction labor and tool staging do not translate into digital catalog database retrieval, alphabetized record keeping, or library indexing. They lack the necessary keyword alignment like alphabetical filing."
+                why: "No match. Taylor is highly punctual, but physical construction labor and tool staging do not translate into digital catalog database retrieval, alphabetized record keeping, or library systems expertise."
             },
             {
                 id: 5,
@@ -687,7 +687,7 @@
                 candidate: {
                     name: "Riley Cooper",
                     education: "Communication Studies Major",
-                    summary: "Creative Communications major with hands-on experience designing brand assets, establishing independent ecommerce channels, and generating online follower growth through custom digital campaigns.",
+                    summary: "Creative Communications major with hands-on experience designing brand assets, establishing independent ecommerce channels, and generating online follower growth through content strategy.",
                     experience: [
                         "Designed professional community marketing flyers and club event invitations using **Canva graphic software**.",
                         "Launched and managed a successful vintage clothing resell shop on Instagram; analyzed **Instagram video metrics** to scale organic post reach."
@@ -696,7 +696,7 @@
                 },
                 isMatch: true,
                 title: "Spot on Match! Recommend Riley!",
-                why: "Perfect match! Even though Riley lacks a formal office background, their direct work creating templates in Canva graphic software and growing a real business using Instagram video metrics shows the exact content creation skills requested."
+                why: "Perfect match! Even though Riley lacks formal office background, their direct work creating templates in Canva graphic software and growing real business using Instagram video metrics demonstrates job-ready expertise."
             }
         ];
 
@@ -999,14 +999,11 @@
             toast.classList.remove('translate-y-20', 'opacity-0');
             toast.classList.add('translate-y-0', 'opacity-100');
 
-            if (window.toastTimer) {
-                clearTimeout(window.toastTimer);
-            }
-
-            window.toastTimer = setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
+            // Auto-hide after 4 seconds
+            setTimeout(() => {
                 toast.classList.remove('translate-y-0', 'opacity-100');
-            }, 3000);
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 4000);
         }
     </script>
 </body>
