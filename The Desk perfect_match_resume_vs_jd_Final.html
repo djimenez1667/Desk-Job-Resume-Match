@@ -160,7 +160,7 @@
                         The Desk: Perfect Match
                     </h2>
                     <p class="text-slate-600 mb-6 text-sm leading-relaxed max-w-md mx-auto">
-                        Welcome to your internship at the Career Advising Center! Your task is simple: review local everyday job openings and determine if the student's resume is an appropriate match.
+                        Welcome to your internship at the Career Advising Center! Your task is simple: review local everyday job openings and determine if the student's resume is an appropriate match for the position.
                     </p>
 
                     <!-- SIMPLIFIED RULES CARD -->
@@ -187,7 +187,7 @@
                         </ul>
                     </div>
 
-                    <button onclick="startGame()" class="w-full sm:w-auto px-10 py-4 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-md shadow-lg shadow-[#8b5e3c]/25 transform hover:-translate-y-1">
+                    <button onclick="startGame()" class="w-full sm:w-auto px-10 py-4 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-md shadow-lg shadow-[#8b5e3c]/25 transform transition-all duration-200 hover:scale-105 active:scale-95">
                         Sit at Desk <i class="fa-solid fa-chair ml-1"></i>
                     </button>
                 </div>
@@ -213,7 +213,7 @@
                         <button onclick="skipTutorial()" class="text-xs text-slate-400 font-bold hover:text-slate-600">
                             Skip Walkthrough
                         </button>
-                        <button onclick="nextTutorialStep()" id="tut-btn-next" class="px-5 py-2.5 bg-[#8b5e3c] text-white font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-md hover:bg-[#724a2c]">
+                        <button onclick="nextTutorialStep()" id="tut-btn-next" class="px-5 py-2.5 bg-[#8b5e3c] text-white font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-md hover:bg-[#724a2c] transform transition-all active:scale-95">
                             Next Tool <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </button>
                     </div>
@@ -252,7 +252,7 @@
                                 
                                 <div>
                                     <h4 class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Duties & Scope</h4>
-                                    <p id="jd-about" class="text-xs text-slate-600 mt-1 leading-relaxed">Operate point-of-sale systems, brew drip coffee, and manage cleaning checklist during morning operations.</p>
+                                    <p id="jd-about" class="text-xs text-slate-600 mt-1 leading-relaxed">Operate point-of-sale systems, brew drip coffee, and manage cleaning checklist during morning shift.</p>
                                 </div>
                                 
                                 <div>
@@ -329,11 +329,11 @@
                     
                     <div class="flex gap-4 w-full max-w-md">
                         <!-- YES MATCH BUTTON -->
-                        <button onclick="submitMatchChoice(true)" class="flex-1 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-bold text-sm shadow-md shadow-emerald-700/20 flex items-center justify-center gap-2">
+                        <button onclick="submitMatchChoice(true)" class="flex-1 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-bold text-sm shadow-md shadow-emerald-700/20 flex items-center justify-center gap-2 transform transition-all active:scale-95">
                             <i class="fa-solid fa-circle-check text-base"></i> YES (Match)
                         </button>
                         <!-- NO MATCH BUTTON -->
-                        <button onclick="submitMatchChoice(false)" class="flex-1 py-3.5 bg-rose-600 hover:bg-rose-700 text-white rounded-2xl font-bold text-sm shadow-md shadow-rose-700/20 flex items-center justify-center gap-2">
+                        <button onclick="submitMatchChoice(false)" class="flex-1 py-3.5 bg-rose-600 hover:bg-rose-700 text-white rounded-2xl font-bold text-sm shadow-md shadow-rose-700/20 flex items-center justify-center gap-2 transform transition-all active:scale-95">
                             <i class="fa-solid fa-circle-xmark text-base"></i> NO (Mismatch)
                         </button>
                     </div>
@@ -346,7 +346,7 @@
                 <div class="bg-white border-8 border-[#8b5e3c] rounded-3xl shadow-2xl max-w-lg w-full p-6 text-center transform transition-all duration-300 scale-95 opacity-0 relative" id="modal-box">
                     
                     <!-- Paper Tag Badge -->
-                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-yellow-100 border-2 border-yellow-300 text-[#8a6d3b] text-xs font-bold px-4 py-1 rounded-full shadow-md uppercase tracking-wider">
+                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-yellow-100 border-2 border-yellow-300 text-[#8a6d3b] text-xs font-bold px-4 py-1 rounded-full shadow-md uppercase tracking-widest">
                         Advisor Desk Analysis
                     </div>
 
@@ -375,7 +375,7 @@
                     </div>
 
                     <!-- PROGRESS CONTROLLER -->
-                    <button onclick="closeMatchExplanation()" class="w-full py-3.5 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-sm shadow-md flex items-center justify-center gap-2">
+                    <button onclick="closeMatchExplanation()" class="w-full py-3.5 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transform transition-all active:scale-95">
                         Pull Next Resume <i class="fa-solid fa-folder-open"></i>
                     </button>
                 </div>
@@ -415,13 +415,13 @@
                         <i class="fa-solid fa-graduation-cap"></i> Classroom Resume Key Lessons:
                     </h4>
                     <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
-                        <li><strong class="text-amber-800">Check Your Schedule First:</strong> If a job description lists explicit shift requirements (like Saturday mornings), a candidate's availability must match those exact hours.</li>
-                        <li><strong class="text-amber-800">Highlight Transferable Skills:</strong> Babysitting counts as time management. Fast food cash registers count as customer service. Reframe your experience in job-specific language.</li>
-                        <li><strong class="text-amber-800">Customize Your Keywords:</strong> Don't use a generic resume for every position. If the desk asks for Canva or Microsoft Office, those exact keywords should appear on your resume.</li>
+                        <li><strong class="text-amber-800">Check Your Schedule First:</strong> If a job description lists explicit shift requirements (like Saturday mornings), a candidate's availability is critical.</li>
+                        <li><strong class="text-amber-800">Highlight Transferable Skills:</strong> Babysitting counts as time management. Fast food cash registers count as customer service. Reframe experience!</li>
+                        <li><strong class="text-amber-800">Customize Your Keywords:</strong> Don't use a generic resume for every position. If the desk asks for Canva or Microsoft Office, those exact words belong on your resume.</li>
                     </ul>
                 </div>
 
-                <button onclick="restartMatchGame()" class="w-full sm:w-auto px-8 py-3.5 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-sm shadow-md transform hover:-translate-y-1">
+                <button onclick="restartMatchGame()" class="w-full sm:w-auto px-8 py-3.5 bg-[#8b5e3c] hover:bg-[#724a2c] text-white rounded-2xl font-bold text-sm shadow-md transform hover:-translate-y-1 transition-all active:scale-95">
                     <i class="fa-solid fa-rotate-left mr-1"></i> Clean Desk & Try Again
                 </button>
             </div>
@@ -530,7 +530,7 @@
                 },
                 isMatch: true,
                 title: "Fantastic Fit! Recommend Alex!",
-                why: "This is a perfect weekend entry-level match! Alex has cash-handling experience from high school concessions and food banks. Most importantly, their weekend availability fits the Saturday-Sunday shift requirement perfectly. Recommend Alex for the role!"
+                why: "This is a perfect weekend entry-level match! Alex has cash-handling experience from high school concessions and food banks. Most importantly, their weekend availability fits the schedule perfectly."
             },
             {
                 id: 2,
@@ -558,7 +558,7 @@
                 },
                 isMatch: false,
                 title: "Not a Match! (Missing Office Tools)",
-                why: "No match. While Jordan's availability matches, they do not list any experience with office software, computers, or professional telephone systems. Babysitting is great, but the job description specifically requires Microsoft Word and computer data entry skills."
+                why: "No match. While Jordan's availability matches, they do not list any experience with office software, computers, or professional telephone systems. Babysitting is great, but this desk needs tech skills."
             },
             {
                 id: 3,
@@ -586,7 +586,7 @@
                 },
                 isMatch: true,
                 title: "Great Fit! Recommend Morgan!",
-                why: "This is a strong match! Morgan's drive-thru window history proves they are friendly, comfortable with high-volume customer service, and fast at handling point-of-sale transactions. Their availability covers the Friday-Saturday afternoon shift perfectly."
+                why: "This is a strong match! Morgan's drive-thru window history proves they are friendly, comfortable with high-volume customer service, and fast at handling point-of-sale transactions."
             },
             {
                 id: 4,
@@ -614,7 +614,7 @@
                 },
                 isMatch: false,
                 title: "Not a Match! (Missing Organizational Clues)",
-                why: "No match. Taylor is highly punctual and strong, but their resume only lists physical labor tasks. They do not demonstrate digital literacy, catalog experience, or detail-oriented filing skills that the library role requires."
+                why: "No match. Taylor is highly punctual and strong, but their resume only lists physical labor tasks. They do not demonstrate digital literacy, catalog experience, or detail-oriented office work."
             },
             {
                 id: 5,
@@ -642,7 +642,7 @@
                 },
                 isMatch: true,
                 title: "Spot on Match! Recommend Riley!",
-                why: "Excellent match! Riley doesn't have corporate office experience, but their creative design workflow in Canva and practical management of their own active vintage Instagram shop proves they can handle the social media requirements perfectly."
+                why: "Excellent match! Riley doesn't have corporate office experience, but their creative design workflow in Canva and practical management of their own active vintage Instagram shop proves they have exactly the social media + design skills needed."
             }
         ];
 
